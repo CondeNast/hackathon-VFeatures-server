@@ -10,7 +10,6 @@ bert_model = Summarizer()
 
 @app.route('/summarize', methods=['POST'])
 def summarize():
-    print('Inside summarize')
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'})
 
