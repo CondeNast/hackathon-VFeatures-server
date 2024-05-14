@@ -10,7 +10,13 @@ CORS(app)
 bert_model = Summarizer()
 model = BartForConditionalGeneration.from_pretrained('facebook/bart-large-cnn')
 tokenizer = BartTokenizer.from_pretrained('facebook/bart-large-cnn')
-
+@app.route('/', methods = ['GET', 'POST']) 
+def home(): 
+    if(request.method == 'GET'): 
+  
+        data = "hello world"
+        return jsonify({'data': data})
+        
 @app.route('/summarize', methods=['POST'])
 def summarize():
     if 'file' not in request.files:
@@ -34,4 +40,4 @@ def bert_summarize(text):
     return ''.join(bert_model(text, min_length=100, max_length=1000))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host= '0.0.0.0')
