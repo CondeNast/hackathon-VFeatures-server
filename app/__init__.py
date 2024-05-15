@@ -1,6 +1,6 @@
 # app/__init__.py
 from flask import Flask
-from .routes import routes_blueprint
+from routes import routes_blueprint
 
 # Create a Flask application instance
 app = Flask(__name__)
