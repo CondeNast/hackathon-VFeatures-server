@@ -40,4 +40,4 @@ def bert_summarize(text):
     return ''.join(bert_model(text, min_length=100, max_length=1000))
 
 if __name__ == '__main__':
-    app.run(host= '0.0.0.0')
+    app.run(host= '0.0.0.0',port=8080)
